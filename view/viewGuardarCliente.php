@@ -24,6 +24,9 @@
         <a class="nav-link" href="index.php?accion=cargarreportes">Reportes</a>
       </li>
     </ul>
+    <div class="ml-auto">
+      <a href="index.php?accion=cerrar" class="btn btn-danger">Cerrar sesión</a>
+    </div>
   </div>
 </nav>
     <div class="contenedor">
