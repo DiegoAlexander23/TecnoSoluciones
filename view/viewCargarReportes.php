@@ -32,6 +32,7 @@
 </nav>
     <div class="contenedor">
         <h1>Listado de Reportes</h1>
+        <a href="index.php?accion=reportepdf" class="btn btn-dark">Reporte PDF</a>
         <table class="table">
             <thead class="thead-dark">
                 <tr>

@@ -66,6 +66,10 @@
             $controller=new ReporteController();
             $controller->cargar();
         break;
+        case 'reportepdf':                                                                                                                              
+            $controller=new ReporteController();
+            $controller->reportepdf();
+        break;
         case 'borrarreporte':
             $controller=new ReporteController();
             $controller->borrar();

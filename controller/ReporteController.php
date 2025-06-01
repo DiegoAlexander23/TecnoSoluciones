@@ -7,6 +7,11 @@
             $reportes=$model->cargar();
             require_once './view/viewCargarReportes.php';
         }
+        public function reportepdf(){
+            $model=new ReporteModel();
+            $reportes=$model->cargar();
+            require_once './view/reportepdf.php';
+        }
 
         public function guardar(){
             $model=new ClienteModel();
