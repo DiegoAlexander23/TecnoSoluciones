@@ -17,6 +17,10 @@
             $controller=new ClienteController();
             $controller->cargar();
         break;
+        case 'clientespdf':                                                                                                                              
+            $controller=new ClienteController();
+            $controller->clientespdf();
+        break;
         case 'borrarcliente':
             $controller=new ClienteController();
             $controller->borrar();
@@ -29,6 +33,9 @@
         case 'cargarproyectos':                                                                                                                              
             $controller=new ProyectoController();
             $controller->cargar();
+            case 'proyectospdf':                                                                                                                              
+            $controller=new ProyectoController();
+            $controller->proyectospdf();
         break;
         case 'borrarproyecto':
             $controller=new ProyectoController();
@@ -66,7 +73,7 @@
             $controller=new ReporteController();
             $controller->cargar();
         break;
-        case 'reportepdf':                                                                                                                              
+        case 'reportespdf':                                                                                                                              
             $controller=new ReporteController();
             $controller->reportepdf();
         break;

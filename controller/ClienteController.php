@@ -8,6 +8,11 @@
             $clientes=$model->cargar();
             require_once './view/viewCargarClientes.php';
         }
+        public function clientespdf(){
+            $model=new ClienteModel();
+            $clientes=$model->cargar();
+            require_once './view/pdf/clientepdf.php';
+        }
 
         public function guardar(){
             $model=new ProyectoModel();

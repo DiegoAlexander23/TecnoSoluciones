@@ -32,7 +32,7 @@
 </nav>
     <div class="contenedor">
         <h1>Listado de Reportes</h1>
-        <a href="index.php?accion=reportepdf" class="btn btn-dark">Reporte PDF</a>
+        <a href="index.php?accion=reportespdf" class="btn btn-dark">Exportar en PDF</a>
         <table class="table">
             <thead class="thead-dark">
                 <tr>

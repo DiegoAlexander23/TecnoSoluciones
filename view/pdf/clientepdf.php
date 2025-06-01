@@ -1,3 +1,7 @@
+<?php
+    ob_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,30 +14,12 @@
     <title>Document</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">TecnoSoluciones</a>
-  <div class="collapse navbar-collapse">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?accion=cargarclientes">Clientes</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?accion=cargarproyectos">Proyectos</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="index.php?accion=cargarreportes">Reportes</a>
-      </li>
-    </ul>
-    <div class="ml-auto">
-      <a href="index.php?accion=cerrar" class="btn btn-danger">Cerrar sesión</a>
-    </div>
-  </div>
+
 </nav>
-    <div class="contenedor">
+    <div>
         <h1>Listado de Clientes</h1>
-        <a href="index.php?accion=clientespdf" class="btn btn-dark">Exportar en PDF</a>
-        <table class="table">
-            <thead class="thead-dark">
+        <table class="table table-bordered">
+            <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nombre</th>
@@ -41,7 +27,6 @@
                     <th>Correo</th>
                     <th>celular</th>
                     <th>direccion</th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -55,14 +40,33 @@
                     <td><?=$cliente->getCorreo();?></td>
                     <td><?=$cliente->getCelular();?></td>
                     <td><?=$cliente->getDireccion();?></td>
-                    <td><a href="index.php?accion=borrarcliente&idcli=<?=$cliente->getIdCliente()?>" class="btn btn-danger">borrar</a></td>
                 </tr>
                 <?php
                     }
                 ?>
             </tbody>
         </table>
-        <a class="btn btn-success" href="index.php?accion=guardarcliente">Crear Nuevo</a>
     </div>
 </body>
 </html>
+<?php
+    $html=ob_get_clean();
+    //echo $html;
+
+    require_once './libreria/dompdf/autoload.inc.php';
+    use Dompdf\Dompdf;
+    $dompdf = new Dompdf();
+    
+    $options =$dompdf->getOptions();
+    $options->set(array('isRemoteEnabled'=> true));
+    $dompdf->setOptions($options);
+
+    $dompdf->loadHtml($html);
+
+    $dompdf->setPaper('letter');
+    //$dompdf->setPaper('A4', 'landscape');
+
+    $dompdf->render();
+
+    $dompdf->stream("Lista_de_Clientes.pdf", array("Attachment" => false));
+?>

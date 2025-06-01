@@ -10,7 +10,7 @@
         public function reportepdf(){
             $model=new ReporteModel();
             $reportes=$model->cargar();
-            require_once './view/reportepdf.php';
+            require_once './view/pdf/reportepdf.php';
         }
 
         public function guardar(){

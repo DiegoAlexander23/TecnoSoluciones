@@ -7,6 +7,11 @@
             $proyectos=$model->cargar();
             require_once './view/viewCargarProyectos.php';
         }
+        public function proyectospdf(){
+            $model=new ProyectoModel();
+            $proyectos=$model->cargar();
+            require_once './view/pdf/proyectos.php';
+        }
 
         public function guardar(){
             if($_SERVER['REQUEST_METHOD']=='POST'){
